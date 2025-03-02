@@ -19,6 +19,10 @@ func got_hit():
 	blink_component.blink()
 	color_change.color_tween()
 	hurt.play() 
+	velocity.x = 300/2
+	velocity.y = JUMP_VELOCITY / 2
+	bounced = true
+	$Hit_boss_timer.start()
 
 func _physics_process(delta: float) -> void:
 
