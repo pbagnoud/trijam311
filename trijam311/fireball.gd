@@ -30,6 +30,7 @@ func meets_player(player):
 		for body in bodies_in_area:
 			if body.is_in_group('boss'):
 				boss_is_hit_by_fireball.emit()
+				body.got_hit()
 		fireball_img.visible = false
 		explosion_particles.emitting = true
 	else:

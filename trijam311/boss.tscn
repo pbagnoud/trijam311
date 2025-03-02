@@ -49,13 +49,14 @@ animation = &"boss_animation"
 script = ExtResource("5_ovv1t")
 image = NodePath("../Area2D/AnimatedSprite2D")
 
-[node name="ColorChange" type="Node" parent="BlinkComponent" node_paths=PackedStringArray("target")]
+[node name="ColorChange" type="Node" parent="." node_paths=PackedStringArray("target")]
 script = ExtResource("6_vrf8u")
-color = Color(1, 0, 0, 1)
-target = NodePath("../../Area2D/AnimatedSprite2D")
+target = NodePath("../Area2D/AnimatedSprite2D")
 
+[connection signal="hit" from="." to="BlinkComponent" method="blink"]
+[connection signal="hit" from="." to="ColorChange" method="color_tween"]
 [connection signal="body_entered" from="Area2D" to="Area2D" method="body_entered"]
 [connection signal="body_exited" from="Area2D" to="Area2D" method="body_exited"]
 [connection signal="change_into_carapace" from="Area2D" to="." method="emit_carapace"]
 [connection signal="change_into_standard" from="Area2D" to="." method="emit_standard"]
-[connection signal="twin_finished" from="BlinkComponent/ColorChange" to="BlinkComponent/ColorChange" method="color_reset"]
+[connection signal="twin_finished" from="ColorChange" to="ColorChange" method="color_reset"]
