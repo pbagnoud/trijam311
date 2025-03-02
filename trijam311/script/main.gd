@@ -19,7 +19,7 @@ func spawn_fireballs_false():
 	please_spawn_fireballs = false
 
 func spawn_fireballs():
-	if please_spawn_fireballs:
+	if please_spawn_fireballs == true:
 		const FIREBALL = preload("res://scene/fireball.tscn")
 		var fireball = FIREBALL.instantiate()
 		add_child(fireball)
