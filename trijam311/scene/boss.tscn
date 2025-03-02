@@ -35,7 +35,6 @@ animation = &"boss animation"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -1)
 shape = SubResource("RectangleShape2D_sg3tq")
-disabled = true
 
 [node name="Area2D" type="Area2D" parent="."]
 script = ExtResource("4_561qw")
