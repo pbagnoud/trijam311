@@ -1,6 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://cht7onnq301di"]
+[gd_scene load_steps=5 format=3 uid="uid://c74xxvv5fksis"]
 
-[ext_resource type="Script" path="res://boss.gd" id="1_7pik1"]
+[ext_resource type="Script" path="res://script/boss.gd" id="1_7pik1"]
 [ext_resource type="Texture2D" uid="uid://de56p12tpxw02" path="res://asset/boss carapace.png" id="2_bdm18"]
 [ext_resource type="Texture2D" uid="uid://wpi4k0ygqccu" path="res://asset/boss dragon.png" id="3_rl7md"]
 
