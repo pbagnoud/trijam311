@@ -9,5 +9,14 @@ anchor_bottom = 1.0
 offset_bottom = -570.0
 grow_horizontal = 2
 grow_vertical = 2
-value = 100.0
+max_value = 1000.0
+value = 1000.0
+show_percentage = false
 script = ExtResource("1_2v8ih")
+
+[node name="Boss_Health_Label" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 524.0
+offset_top = 20.0
+offset_right = 632.0
+offset_bottom = 60.0
