@@ -26,6 +26,7 @@ func exits_screen():
 func meets_player(player):
 	if player.is_in_group("Player"):
 		var bodies_in_area = fireball_explosion_area.get_overlapping_bodies()
+		player.got_hit()
 		for body in bodies_in_area:
 			if body.is_in_group('boss'):
 				boss_is_hit_by_fireball.emit()
