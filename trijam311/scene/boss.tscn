@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://cht7onnq301di"]
+
+[ext_resource type="Script" path="res://boss.gd" id="1_7pik1"]
+[ext_resource type="Texture2D" uid="uid://de56p12tpxw02" path="res://asset/boss carapace.png" id="2_bdm18"]
+[ext_resource type="Texture2D" uid="uid://wpi4k0ygqccu" path="res://asset/boss dragon.png" id="3_rl7md"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_41618"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_bdm18")
+}],
+"loop": true,
+"name": &"boss carapace",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_rl7md")
+}],
+"loop": true,
+"name": &"boss standard",
+"speed": 5.0
+}]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_7pik1")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_41618")
+animation = &"boss standard"
