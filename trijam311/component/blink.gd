@@ -1,7 +1,7 @@
 extends Node
 class_name BlinkComponent
 
-@export var image: Sprite2D
+@export var image: Node2D
 @export var duration:= 1.5
 @export var amount: = 3
 signal reappear

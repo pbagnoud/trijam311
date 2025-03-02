@@ -1,9 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://ckvhfe27xh340"]
+[gd_scene load_steps=10 format=3 uid="uid://blfdnx3jfa1sc"]
 
 [ext_resource type="Script" path="res://script/boss.gd" id="1_vfun5"]
 [ext_resource type="Texture2D" uid="uid://wpi4k0ygqccu" path="res://asset/boss dragon.png" id="3_rl7md"]
 [ext_resource type="Script" path="res://script/area_around_boss.gd" id="4_561qw"]
 [ext_resource type="Texture2D" uid="uid://02sucom05i4y" path="res://asset/boss carapace basse.png" id="4_syssr"]
+[ext_resource type="Script" path="res://component/blink.gd" id="5_ovv1t"]
+[ext_resource type="Script" path="res://component/colorChange.gd" id="6_vrf8u"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sg3tq"]
 size = Vector2(50, 31)
@@ -25,7 +27,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Node2D" type="StaticBody2D" groups=["boss"]]
+[node name="boss staticboby" type="StaticBody2D" groups=["boss"]]
 script = ExtResource("1_vfun5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -43,5 +45,17 @@ shape = SubResource("RectangleShape2D_q7q61")
 sprite_frames = SubResource("SpriteFrames_41618")
 animation = &"boss_animation"
 
+[node name="BlinkComponent" type="Node" parent="." node_paths=PackedStringArray("image")]
+script = ExtResource("5_ovv1t")
+image = NodePath("../Area2D/AnimatedSprite2D")
+
+[node name="ColorChange" type="Node" parent="BlinkComponent" node_paths=PackedStringArray("target")]
+script = ExtResource("6_vrf8u")
+color = Color(1, 0, 0, 1)
+target = NodePath("../../Area2D/AnimatedSprite2D")
+
 [connection signal="body_entered" from="Area2D" to="Area2D" method="body_entered"]
 [connection signal="body_exited" from="Area2D" to="Area2D" method="body_exited"]
+[connection signal="change_into_carapace" from="Area2D" to="." method="emit_carapace"]
+[connection signal="change_into_standard" from="Area2D" to="." method="emit_standard"]
+[connection signal="twin_finished" from="BlinkComponent/ColorChange" to="BlinkComponent/ColorChange" method="color_reset"]

@@ -14,6 +14,6 @@ func little_damage():
 	$Boss_Health_Label.text = str(value)
 	
 func big_damage():
-	value += -10
+	value += -100
 	$Boss_Health_Label.text = str(value)
 	
