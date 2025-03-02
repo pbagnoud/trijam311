@@ -57,6 +57,7 @@ offset_right = 903.0
 offset_bottom = 98.0
 
 [node name="FireballTimer" type="Timer" parent="."]
+wait_time = 2.0
 autostart = true
 
 [node name="Instructions" parent="." instance=ExtResource("8_8gp42")]
