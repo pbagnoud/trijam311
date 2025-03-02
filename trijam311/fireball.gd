@@ -9,7 +9,7 @@ signal boss_is_hit_by_fireball
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	var viewport_width = get_viewport().size.x
-	var spawn_width = randf_range(0, viewport_width)
+	var spawn_width = randf_range(64, int(viewport_width/3))
 	position.x = spawn_width
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
