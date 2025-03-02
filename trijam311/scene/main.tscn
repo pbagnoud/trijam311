@@ -6,8 +6,10 @@
 [ext_resource type="PackedScene" uid="uid://bre5v4cmh8k8s" path="res://scene/boss.tscn" id="4_dfo6j"]
 [ext_resource type="PackedScene" path="res://scene/fireball.tscn" id="5_4bfyv"]
 [ext_resource type="Texture2D" uid="uid://c7xfb6l25y2n3" path="res://asset/background.png" id="6_4vopv"]
+
 [ext_resource type="PackedScene" path="res://scene/Boss_healthbar.tscn" id="7_r1egk"]
 [ext_resource type="PackedScene" path="res://scene/Instructions.tscn" id="8_8gp42"]
+
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_f0eti"]
 texture = ExtResource("2_lefjs")
@@ -55,7 +57,6 @@ offset_right = 903.0
 offset_bottom = 98.0
 
 [node name="FireballTimer" type="Timer" parent="."]
-wait_time = 2.5
 autostart = true
 
 [node name="Instructions" parent="." instance=ExtResource("8_8gp42")]
@@ -72,6 +73,4 @@ offset_bottom = 94.0
 text = "Dragon Health :"
 
 [connection signal="hit_dragon" from="Character" to="BossHealthbar" method="little_damage"]
-[connection signal="change_into_carapace" from="Node2D" to="." method="spawn_fireballs_false"]
-[connection signal="change_into_standard" from="Node2D" to="." method="spawn_fireballs_true"]
 [connection signal="timeout" from="FireballTimer" to="." method="spawn_fireballs"]
