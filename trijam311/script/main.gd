@@ -14,12 +14,14 @@ func _process(delta: float) -> void:
 
 func spawn_fireballs_true():
 	please_spawn_fireballs = true
+	print('spawn true')
 
 func spawn_fireballs_false():
 	please_spawn_fireballs = false
-
+	print('spawn flase'
+	)
 func spawn_fireballs():
-	if please_spawn_fireballs:
+	if please_spawn_fireballs == true:
 		const FIREBALL = preload("res://scene/fireball.tscn")
 		var fireball = FIREBALL.instantiate()
 		add_child(fireball)
