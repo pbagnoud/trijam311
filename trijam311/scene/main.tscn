@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://script/main.gd" id="1_seciw"]
 [ext_resource type="Texture2D" uid="uid://bv8so10pn41s2" path="res://asset/floor_placeholder.png" id="2_lefjs"]
 [ext_resource type="PackedScene" uid="uid://f4pi2uknlxro" path="res://scene/Character.tscn" id="3_qysgs"]
-[ext_resource type="PackedScene" path="res://scene/boss.tscn" id="4_dfo6j"]
+[ext_resource type="PackedScene" uid="uid://c74xxvv5fksis" path="res://scene/boss.tscn" id="4_dfo6j"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_f0eti"]
 texture = ExtResource("2_lefjs")
@@ -25,5 +25,6 @@ tile_set = SubResource("TileSet_yb823")
 [node name="Character" parent="." instance=ExtResource("3_qysgs")]
 position = Vector2(210, 423)
 
-[node name="Node2D" parent="." instance=ExtResource("4_dfo6j")]
+[node name="Node2D" parent="." node_paths=PackedStringArray("joueur") instance=ExtResource("4_dfo6j")]
 position = Vector2(85, 410)
+joueur = NodePath("../Character")
