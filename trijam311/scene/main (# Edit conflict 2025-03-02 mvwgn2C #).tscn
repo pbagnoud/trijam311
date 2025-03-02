@@ -52,8 +52,3 @@ offset_left = 448.0
 offset_top = 38.0
 offset_right = 903.0
 offset_bottom = 98.0
-
-[node name="FireballTimer" type="Timer" parent="."]
-autostart = true
-
-[connection signal="timeout" from="FireballTimer" to="." method="spawn_fireballs"]
