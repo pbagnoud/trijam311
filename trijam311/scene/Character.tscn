@@ -86,3 +86,6 @@ sprite_frames = SubResource("SpriteFrames_gw5b2")
 animation = &"Idle"
 autoplay = "Idle"
 frame_progress = 0.11389
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2, 2)
