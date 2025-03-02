@@ -6,10 +6,10 @@
 [ext_resource type="Texture2D" uid="uid://02sucom05i4y" path="res://asset/boss carapace basse.png" id="4_syssr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sg3tq"]
-size = Vector2(50, 61)
+size = Vector2(50, 31)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q7q61"]
-size = Vector2(207, 107)
+size = Vector2(394, 209)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_41618"]
 animations = [{
@@ -29,14 +29,14 @@ animations = [{
 script = ExtResource("1_vfun5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-7, -0.5)
+position = Vector2(-7, 14.5)
 shape = SubResource("RectangleShape2D_sg3tq")
 
 [node name="Area2D" type="Area2D" parent="."]
 script = ExtResource("4_561qw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(2.5, -23.5)
+position = Vector2(-91, -74.5)
 shape = SubResource("RectangleShape2D_q7q61")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Area2D"]
