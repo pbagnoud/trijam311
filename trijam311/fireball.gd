@@ -13,6 +13,12 @@ func _process(delta: float) -> void:
 	var speed = 100
 	position.y = position.y + speed*delta
 	
-
 func flip():
-	fireball_img.flip_v = not fireball_img.flip_v
+	fireball_img.flip_h = not fireball_img.flip_h
+
+func exits_screen():
+	queue_free()
+
+func meets_player(player):
+	pass
+	
