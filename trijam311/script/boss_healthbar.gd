@@ -1,9 +1,8 @@
 extends ProgressBar
 
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	$Boss_Health_Label.text = str(value)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -12,6 +11,9 @@ func _process(delta: float) -> void:
 
 func little_damage():
 	value += -1
+	$Boss_Health_Label.text = str(value)
 	
 func big_damage():
 	value += -10
+	$Boss_Health_Label.text = str(value)
+	
