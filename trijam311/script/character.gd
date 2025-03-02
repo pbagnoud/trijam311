@@ -4,9 +4,9 @@ extends CharacterBody2D
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var sword_sound: AudioStreamPlayer2D = $SwordSound
+
 var bounced = false
-
-
 signal hit_dragon
 
 func _physics_process(delta: float) -> void:
@@ -45,10 +45,15 @@ func _physics_process(delta: float) -> void:
 		var collision = get_slide_collision(i)
 		if collision.get_collider().name == "Node2D":
 			hit_dragon.emit()
+			sword_sound.play()
+		
 			$Hit_boss_timer.start()
 			bounced = true
 			velocity.x = 1 * SPEED
 			velocity.y = JUMP_VELOCITY
+	
+	if bounced== true:
+		sprite.play("Attack")
 	
 
 
