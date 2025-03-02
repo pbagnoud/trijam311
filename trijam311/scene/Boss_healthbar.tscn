@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://bg55aby51yiv2"]
+[gd_scene load_steps=2 format=3 uid="uid://yn5ufdfx561d"]
 
 [ext_resource type="Script" path="res://script/boss_healthbar.gd" id="1_2v8ih"]
 
