@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://nu8l30genray"]
+[gd_scene load_steps=13 format=4 uid="uid://nu8l30genray"]
 
 [ext_resource type="Script" path="res://script/main.gd" id="1_seciw"]
 [ext_resource type="Texture2D" uid="uid://bv8so10pn41s2" path="res://asset/floor_placeholder.png" id="2_lefjs"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://l0ckss6wxr26" path="res://scene/fireball.tscn" id="5_4bfyv"]
 [ext_resource type="Texture2D" uid="uid://c7xfb6l25y2n3" path="res://asset/background.png" id="6_4vopv"]
 [ext_resource type="PackedScene" uid="uid://yn5ufdfx561d" path="res://scene/Boss_healthbar.tscn" id="7_r1egk"]
+[ext_resource type="PackedScene" uid="uid://dt8lcrnymmexa" path="res://scene/Instructions.tscn" id="8_8gp42"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_f0eti"]
 texture = ExtResource("2_lefjs")
@@ -55,6 +56,19 @@ offset_bottom = 98.0
 
 [node name="FireballTimer" type="Timer" parent="."]
 autostart = true
+
+[node name="Instructions" parent="." instance=ExtResource("8_8gp42")]
+offset_left = 455.0
+offset_top = 176.0
+offset_right = 455.0
+offset_bottom = 176.0
+
+[node name="Nom_des_PV" type="RichTextLabel" parent="."]
+offset_left = 314.0
+offset_top = 54.0
+offset_right = 457.0
+offset_bottom = 94.0
+text = "Dragon Health :"
 
 [connection signal="hit_dragon" from="Character" to="BossHealthbar" method="little_damage"]
 [connection signal="timeout" from="FireballTimer" to="." method="spawn_fireballs"]
