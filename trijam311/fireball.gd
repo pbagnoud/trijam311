@@ -24,6 +24,8 @@ func exits_screen():
 	queue_free()
 
 func meets_player(player):
+	if fireball_img.visible == false:
+		return
 	if player.is_in_group("Player"):
 		var bodies_in_area = fireball_explosion_area.get_overlapping_bodies()
 		player.got_hit()

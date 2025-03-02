@@ -9,7 +9,8 @@ const JUMP_VELOCITY = -400.0
 var bounced = false
 
 @onready var blink_component: BlinkComponent = $BlinkComponent
-@onready var color_change: ColorChange = $ColorChange
+@onready var color_change = $ColorChange
+@onready var hurt: AudioStreamPlayer2D = $hurt
 
 
 signal hit_dragon
@@ -17,6 +18,7 @@ signal hit_dragon
 func got_hit():
 	blink_component.blink()
 	color_change.color_tween()
+	hurt.play() 
 
 func _physics_process(delta: float) -> void:
 

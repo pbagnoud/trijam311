@@ -59,4 +59,3 @@ target = NodePath("../Area2D/AnimatedSprite2D")
 [connection signal="body_exited" from="Area2D" to="Area2D" method="body_exited"]
 [connection signal="change_into_carapace" from="Area2D" to="." method="emit_carapace"]
 [connection signal="change_into_standard" from="Area2D" to="." method="emit_standard"]
-[connection signal="twin_finished" from="ColorChange" to="ColorChange" method="color_reset"]
