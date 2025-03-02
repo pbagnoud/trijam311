@@ -1,17 +1,13 @@
-
 [gd_scene load_steps=21 format=3 uid="uid://blg42y00rpmot"]
-
 
 [ext_resource type="Script" path="res://script/character.gd" id="1_cj522"]
 [ext_resource type="Texture2D" uid="uid://dofm4ix8lm75j" path="res://asset/character_placeholder.png" id="1_tgdjw"]
 [ext_resource type="Texture2D" uid="uid://b8cwx6dslcqxi" path="res://asset/Idle.png" id="2_gmu0h"]
 [ext_resource type="Texture2D" uid="uid://bvns74sh36uh" path="res://asset/Attack.png" id="2_kge5g"]
 [ext_resource type="Texture2D" uid="uid://d2gqpj8587jl7" path="res://asset/Walk.png" id="3_jrrcy"]
-
 [ext_resource type="AudioStream" uid="uid://caqklw62373kp" path="res://asset/sword-hit.mp3" id="6_g8cwg"]
 [ext_resource type="Script" path="res://component/blink.gd" id="6_wksb1"]
 [ext_resource type="Script" path="res://component/colorChange.gd" id="7_tikbw"]
-
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dxc4h"]
 radius = 11.0
@@ -137,7 +133,6 @@ zoom = Vector2(2, 2)
 [node name="Hit_boss_timer" type="Timer" parent="."]
 one_shot = true
 
-
 [node name="SwordSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_g8cwg")
 volume_db = 9.333
@@ -149,7 +144,6 @@ image = NodePath("../AnimatedSprite2D")
 [node name="ColorChange" type="Node" parent="." node_paths=PackedStringArray("target")]
 script = ExtResource("7_tikbw")
 target = NodePath("../AnimatedSprite2D")
-
 
 [connection signal="timeout" from="Hit_boss_timer" to="." method="_on_hit_boss_timer_timeout"]
 [connection signal="twin_finished" from="ColorChange" to="ColorChange" method="color_reset"]

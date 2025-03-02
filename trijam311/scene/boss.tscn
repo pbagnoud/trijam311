@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://ckvhfe27xh340"]
+[gd_scene load_steps=8 format=3 uid="uid://bre5v4cmh8k8s"]
 
 [ext_resource type="Script" path="res://script/boss.gd" id="1_vfun5"]
 [ext_resource type="Texture2D" uid="uid://wpi4k0ygqccu" path="res://asset/boss dragon.png" id="3_rl7md"]
