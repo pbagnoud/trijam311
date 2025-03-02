@@ -1,9 +1,9 @@
 [gd_scene load_steps=8 format=3 uid="uid://c74xxvv5fksis"]
 
 [ext_resource type="Script" path="res://script/boss.gd" id="1_vfun5"]
-[ext_resource type="Texture2D" uid="uid://de56p12tpxw02" path="res://asset/boss carapace.png" id="2_bdm18"]
 [ext_resource type="Texture2D" uid="uid://wpi4k0ygqccu" path="res://asset/boss dragon.png" id="3_rl7md"]
 [ext_resource type="Script" path="res://script/area_around_boss.gd" id="4_561qw"]
+[ext_resource type="Texture2D" uid="uid://02sucom05i4y" path="res://asset/boss carapace basse.png" id="4_syssr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sg3tq"]
 size = Vector2(64, 62)
@@ -18,7 +18,7 @@ animations = [{
 "texture": ExtResource("3_rl7md")
 }, {
 "duration": 1.0,
-"texture": ExtResource("2_bdm18")
+"texture": ExtResource("4_syssr")
 }],
 "loop": true,
 "name": &"boss_animation",
