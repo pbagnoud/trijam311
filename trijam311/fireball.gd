@@ -4,6 +4,7 @@ signal boss_is_hit_by_fireball
 
 @onready var fireball_img: Sprite2D = $FireballImg
 @onready var fireball_explosion_area: Area2D = $FireballExplosionArea
+@onready var explosion_particles: CPUParticles2D = $ExplosionParticles
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -28,6 +29,8 @@ func meets_player(player):
 		for body in bodies_in_area:
 			if body.is_in_group('boss'):
 				boss_is_hit_by_fireball.emit()
+		fireball_img.visible = false
+		explosion_particles.emitting = true
 	else:
 		pass
 	
