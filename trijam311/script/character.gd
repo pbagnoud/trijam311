@@ -5,9 +5,15 @@ const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 var bounced = false
+@onready var blink_component: BlinkComponent = $BlinkComponent
+@onready var color_change: ColorChange = $ColorChange
 
 
 signal hit_dragon
+
+func got_hit():
+	blink_component.blink()
+	color_change.color_tween()
 
 func _physics_process(delta: float) -> void:
 
