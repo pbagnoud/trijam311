@@ -1,12 +1,21 @@
-[gd_scene load_steps=10 format=3 uid="uid://f4pi2uknlxro"]
+[gd_scene load_steps=13 format=3 uid="uid://b7d0jyvehlppx"]
 
 [ext_resource type="Script" path="res://script/character.gd" id="1_cj522"]
 [ext_resource type="Texture2D" uid="uid://dofm4ix8lm75j" path="res://asset/character_placeholder.png" id="1_tgdjw"]
+[ext_resource type="Texture2D" uid="uid://b8cwx6dslcqxi" path="res://asset/Idle.png" id="2_gmu0h"]
 [ext_resource type="Texture2D" uid="uid://d2gqpj8587jl7" path="res://asset/Walk.png" id="3_jrrcy"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dxc4h"]
 radius = 11.0
 height = 32.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ka2po"]
+atlas = ExtResource("2_gmu0h")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_74501"]
+atlas = ExtResource("2_gmu0h")
+region = Rect2(0, 32, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_oawwv"]
 atlas = ExtResource("3_jrrcy")
@@ -26,6 +35,17 @@ region = Rect2(32, 32, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_gw5b2"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ka2po")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_74501")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 3.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("1_tgdjw")
@@ -63,7 +83,6 @@ shape = SubResource("CapsuleShape2D_dxc4h")
 position = Vector2(6, -1)
 scale = Vector2(0.96875, 0.90625)
 sprite_frames = SubResource("SpriteFrames_gw5b2")
-animation = &"Walk"
-autoplay = "Walk"
-frame = 2
-frame_progress = 0.565264
+animation = &"Idle"
+autoplay = "Idle"
+frame_progress = 0.11389
