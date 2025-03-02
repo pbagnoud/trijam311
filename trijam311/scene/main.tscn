@@ -4,9 +4,11 @@
 [ext_resource type="Texture2D" uid="uid://bv8so10pn41s2" path="res://asset/floor_placeholder.png" id="2_lefjs"]
 [ext_resource type="PackedScene" uid="uid://f4pi2uknlxro" path="res://scene/Character.tscn" id="3_qysgs"]
 [ext_resource type="PackedScene" uid="uid://c74xxvv5fksis" path="res://scene/boss.tscn" id="4_dfo6j"]
+
 [ext_resource type="PackedScene" path="res://scene/fireball.tscn" id="5_4bfyv"]
 [ext_resource type="Texture2D" uid="uid://c7xfb6l25y2n3" path="res://asset/background.png" id="6_4vopv"]
 [ext_resource type="PackedScene" uid="uid://yn5ufdfx561d" path="res://scene/Boss_healthbar.tscn" id="7_r1egk"]
+
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_f0eti"]
 texture = ExtResource("2_lefjs")
@@ -38,8 +40,9 @@ tile_set = SubResource("TileSet_yb823")
 [node name="Character" parent="." instance=ExtResource("3_qysgs")]
 position = Vector2(210, 423)
 
-[node name="Node2D" parent="." instance=ExtResource("4_dfo6j")]
+[node name="Node2D" parent="." node_paths=PackedStringArray("joueur") instance=ExtResource("4_dfo6j")]
 position = Vector2(85, 410)
+
 
 [node name="Fireball" parent="." instance=ExtResource("5_4bfyv")]
 
@@ -48,7 +51,8 @@ visible = false
 tile_set = SubResource("TileSet_dtnlo")
 
 [node name="BossHealthbar" parent="." instance=ExtResource("7_r1egk")]
-offset_left = 362.0
-offset_top = 31.0
-offset_right = 817.0
-offset_bottom = 91.0
+
+offset_left = 448.0
+offset_top = 38.0
+offset_right = 903.0
+offset_bottom = 98.0
