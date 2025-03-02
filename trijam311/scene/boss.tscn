@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bre5v4cmh8k8s"]
+[gd_scene load_steps=14 format=3 uid="uid://bre5v4cmh8k8s"]
 
 [ext_resource type="Script" path="res://script/boss.gd" id="1_vfun5"]
 [ext_resource type="Texture2D" uid="uid://wpi4k0ygqccu" path="res://asset/boss dragon.png" id="3_rl7md"]
@@ -29,8 +29,24 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="Curve" id="Curve_23uyw"]
+_data = [Vector2(0, 0.524041), 0.0, 0.0, 0, 0, Vector2(0.496104, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Gradient" id="Gradient_s3rav"]
+offsets = PackedFloat32Array(0, 0.2, 0.4, 0.5, 0.8, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.341248, 0.317321, 0.498745, 1, 0.225992, 0.578646, 0.844187, 1, 0.270694, 0.621959, 0.722684, 1, 1, 0.7525, 0.00999999, 1, 1, 1, 1, 1)
+metadata/_snap_enabled = true
+
 [node name="Node2D" type="StaticBody2D" groups=["boss"]]
 script = ExtResource("1_vfun5")
+
+[node name="shake over" type="Node" parent="." node_paths=PackedStringArray("node")]
+script = ExtResource("7_1wddf")
+node = NodePath("../Area2D/AnimatedSprite2D")
+max_shake_px = 40.0
+shake_decrease_duration = 5.0
+shake_increase_duration = 0.1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-7, 14.5)
@@ -50,20 +66,56 @@ animation = &"boss_animation"
 [node name="BlinkComponent" type="Node" parent="." node_paths=PackedStringArray("image")]
 script = ExtResource("5_ycwad")
 image = NodePath("../Area2D/AnimatedSprite2D")
+duration = 1.8
+amount = 7
 
 [node name="ColorChange" type="Node" parent="." node_paths=PackedStringArray("target")]
 script = ExtResource("6_wm3uw")
-duration = 0.5
+duration = 0.1
+color = Color(1, 0.156863, 0.247059, 1)
+target = NodePath("../Area2D/AnimatedSprite2D")
+
+[node name="ColorChange3" type="Node" parent="." node_paths=PackedStringArray("target")]
+script = ExtResource("6_wm3uw")
+duration = 1.5
 color = Color(1, 0.156863, 0.247059, 1)
 target = NodePath("../Area2D/AnimatedSprite2D")
 
 [node name="ShakeComponent" type="Node" parent="." node_paths=PackedStringArray("node")]
 script = ExtResource("7_1wddf")
 node = NodePath("../Area2D/AnimatedSprite2D")
+shake_decrease_duration = 0.7
+shake_increase_duration = 0.7
 shake_y_axis = false
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("8_lmpy3")
+
+[node name="ColorChange2" type="Node" parent="." node_paths=PackedStringArray("target")]
+script = ExtResource("6_wm3uw")
+duration = 0.1
+color = Color(0, 0, 0, 1)
+target = NodePath("../Area2D/AnimatedSprite2D")
+
+[node name="ExplosionParticles" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 900
+lifetime = 1.5
+one_shot = true
+speed_scale = 0.8
+explosiveness = 0.87
+emission_shape = 1
+emission_sphere_radius = 25.0
+particle_flag_align_y = true
+spread = 180.0
+gravity = Vector2(0, 150)
+initial_velocity_min = 80.57
+initial_velocity_max = 189.57
+scale_amount_min = 2.0
+scale_amount_max = 5.0
+scale_amount_curve = SubResource("Curve_23uyw")
+color_ramp = SubResource("Gradient_s3rav")
+hue_variation_max = 1.0
 
 [connection signal="hit" from="." to="BlinkComponent" method="blink"]
 [connection signal="hit" from="." to="ColorChange" method="color_tween"]
@@ -72,4 +124,5 @@ stream = ExtResource("8_lmpy3")
 [connection signal="body_exited" from="Area2D" to="Area2D" method="body_exited"]
 [connection signal="change_into_carapace" from="Area2D" to="." method="emit_carapace"]
 [connection signal="change_into_standard" from="Area2D" to="." method="emit_standard"]
-[connection signal="twin_finished" from="ColorChange" to="ColorChange" method="color_reset"]
+[connection signal="twin_finished" from="ColorChange" to="ColorChange3" method="color_tween"]
+[connection signal="twin_finished" from="ColorChange3" to="ColorChange3" method="color_reset"]

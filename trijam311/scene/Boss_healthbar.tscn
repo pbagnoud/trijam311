@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://yn5ufdfx561d"]
+[gd_scene load_steps=3 format=3 uid="uid://co7x7tb4cfflv"]
 
 [ext_resource type="Script" path="res://script/boss_healthbar.gd" id="1_2v8ih"]
+[ext_resource type="AudioStream" uid="uid://dqxfkjloywkjf" path="res://asset/victory_sound.mp3" id="2_d1b73"]
 
 [node name="BossHealthbar" type="ProgressBar"]
 anchors_preset = 15
@@ -28,3 +29,10 @@ offset_left = 128.268
 offset_top = 7.024
 offset_right = 228.0
 offset_bottom = 62.024
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_d1b73")
+volume_db = -15.0
+
+[connection signal="value_changed" from="." to="." method="check_value"]
+[connection signal="finished" from="AudioStreamPlayer" to="." method="return_menu"]

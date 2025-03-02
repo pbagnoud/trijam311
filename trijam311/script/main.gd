@@ -1,12 +1,16 @@
 extends Node2D
 @onready var boss_healthbar: ProgressBar = $BossHealthbar
+@onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
 
 var please_spawn_fireballs = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	audio_stream_player.play() # Replace with function body.
 
+func fade_out():
+	var tween = create_tween()
+	tween.tween_property(audio_stream_player,'volume_db',-25,2)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

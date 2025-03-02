@@ -4,10 +4,10 @@
 [ext_resource type="Texture2D" uid="uid://bv8so10pn41s2" path="res://asset/floor_placeholder.png" id="2_lefjs"]
 [ext_resource type="PackedScene" uid="uid://blg42y00rpmot" path="res://scene/Character.tscn" id="3_qysgs"]
 [ext_resource type="PackedScene" uid="uid://bre5v4cmh8k8s" path="res://scene/boss.tscn" id="4_dfo6j"]
-[ext_resource type="PackedScene" uid="uid://bt7ypnw47ka5o" path="res://scene/fireball.tscn" id="5_4bfyv"]
 [ext_resource type="Texture2D" uid="uid://c7xfb6l25y2n3" path="res://asset/background.png" id="6_4vopv"]
-[ext_resource type="PackedScene" path="res://scene/Boss_healthbar.tscn" id="7_r1egk"]
+[ext_resource type="PackedScene" uid="uid://co7x7tb4cfflv" path="res://scene/Boss_healthbar.tscn" id="7_r1egk"]
 [ext_resource type="PackedScene" path="res://scene/Instructions.tscn" id="8_8gp42"]
+[ext_resource type="AudioStream" uid="uid://bwqgdxnjvfl2p" path="res://asset/music-play.mp3" id="9_o3skd"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_f0eti"]
 texture = ExtResource("2_lefjs")
@@ -42,8 +42,6 @@ position = Vector2(341, 423)
 [node name="Node2D" parent="." instance=ExtResource("4_dfo6j")]
 position = Vector2(74, 410)
 
-[node name="Fireball" parent="." instance=ExtResource("5_4bfyv")]
-
 [node name="Environnement_true" type="TileMapLayer" parent="."]
 visible = false
 tile_set = SubResource("TileSet_dtnlo")
@@ -71,7 +69,12 @@ offset_right = 457.0
 offset_bottom = 94.0
 text = "Dragon Health :"
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_o3skd")
+
 [connection signal="hit_dragon" from="Character" to="BossHealthbar" method="little_damage"]
 [connection signal="change_into_carapace" from="Node2D" to="." method="spawn_fireballs_false"]
 [connection signal="change_into_standard" from="Node2D" to="." method="spawn_fireballs_true"]
+[connection signal="over" from="BossHealthbar" to="." method="fade_out"]
+[connection signal="over" from="BossHealthbar" to="Node2D" method="remove"]
 [connection signal="timeout" from="FireballTimer" to="." method="spawn_fireballs"]

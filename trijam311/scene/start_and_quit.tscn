@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://cbpqtnu075rvd"]
+[gd_scene load_steps=5 format=3 uid="uid://cbpqtnu075rvd"]
 
+[ext_resource type="Script" path="res://scene/start_button.gd" id="1_okphy"]
 [ext_resource type="Script" path="res://script/start.gd" id="1_udn83"]
+[ext_resource type="Script" path="res://scene/quit_button.gd" id="2_uuwep"]
+[ext_resource type="AudioStream" uid="uid://76vptsvykc5f" path="res://asset/menu-sound.mp3" id="4_14gnx"]
 
 [node name="start and quit" type="Node2D"]
 
@@ -9,13 +12,21 @@ offset_left = 265.0
 offset_top = 105.0
 offset_right = 905.0
 offset_bottom = 261.0
+script = ExtResource("1_okphy")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="start button"]
-layout_mode = 0
-offset_left = 314.0
-offset_top = 62.0
-offset_right = 493.0
-offset_bottom = 157.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -25.0
+offset_top = -12.0
+offset_right = 25.0
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 2
 text = "START"
 script = ExtResource("1_udn83")
 
@@ -24,11 +35,26 @@ offset_left = 267.0
 offset_top = 298.0
 offset_right = 909.0
 offset_bottom = 454.0
+script = ExtResource("2_uuwep")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="quit button"]
-layout_mode = 0
-offset_left = 316.0
-offset_top = 59.0
-offset_right = 356.0
-offset_bottom = 99.0
-text = "QUIT"
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -126.0
+offset_top = -20.0
+offset_right = 126.0
+offset_bottom = 9.0
+grow_horizontal = 2
+grow_vertical = 2
+bbcode_enabled = true
+text = "[center]QUIT"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_14gnx")
+
+[connection signal="pressed" from="start button" to="start button" method="_on_pressed"]
+[connection signal="pressed" from="quit button" to="quit button" method="_on_pressed"]
