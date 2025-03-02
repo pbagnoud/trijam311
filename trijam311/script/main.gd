@@ -18,8 +18,8 @@ func spawn_fireballs_true():
 
 func spawn_fireballs_false():
 	please_spawn_fireballs = false
-	print('spawn flase'
-	)
+	print('spawn flase')
+	
 func spawn_fireballs():
 	if please_spawn_fireballs == true:
 		const FIREBALL = preload("res://scene/fireball.tscn")
