@@ -9,7 +9,9 @@
 [ext_resource type="PackedScene" path="res://scene/fireball.tscn" id="5_4bfyv"]
 
 [ext_resource type="Texture2D" uid="uid://c7xfb6l25y2n3" path="res://asset/background.png" id="6_4vopv"]
+
 [ext_resource type="PackedScene" path="res://scene/Boss_healthbar.tscn" id="7_r1egk"]
+
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_f0eti"]
 texture = ExtResource("2_lefjs")
