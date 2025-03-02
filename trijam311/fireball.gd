@@ -1,6 +1,9 @@
 extends Node2D
 
+signal boss_is_hit_by_fireball
+
 @onready var fireball_img: Sprite2D = $FireballImg
+@onready var fireball_explosion_area: Area2D = $FireballExplosionArea
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -20,5 +23,11 @@ func exits_screen():
 	queue_free()
 
 func meets_player(player):
-	pass
+	if player.is_in_group("Player"):
+		var bodies_in_area = fireball_explosion_area.get_overlapping_bodies()
+		for body in bodies_in_area:
+			if body.is_in_group('boss'):
+				boss_is_hit_by_fireball.emit()
+	else:
+		pass
 	
