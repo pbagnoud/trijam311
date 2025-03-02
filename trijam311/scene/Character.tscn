@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://b7d0jyvehlppx"]
+[gd_scene load_steps=18 format=3 uid="uid://f4pi2uknlxro"]
 
 [ext_resource type="Script" path="res://script/character.gd" id="1_cj522"]
 [ext_resource type="Texture2D" uid="uid://dofm4ix8lm75j" path="res://asset/character_placeholder.png" id="1_tgdjw"]
@@ -124,3 +124,8 @@ autoplay = "Idle"
 visible = false
 enabled = false
 zoom = Vector2(2, 2)
+
+[node name="Hit_boss_timer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="Hit_boss_timer" to="." method="_on_hit_boss_timer_timeout"]
