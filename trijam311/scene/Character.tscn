@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://f4pi2uknlxro"]
+
+[ext_resource type="Script" path="res://script/character.gd" id="1_cj522"]
+[ext_resource type="Texture2D" uid="uid://dofm4ix8lm75j" path="res://asset/character_placeholder.png" id="1_tgdjw"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dxc4h"]
+radius = 11.0
+height = 32.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gw5b2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_tgdjw")
+}],
+"loop": true,
+"name": &"Move",
+"speed": 5.0
+}]
+
+[node name="Character" type="CharacterBody2D"]
+script = ExtResource("1_cj522")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.500008, -0.5)
+shape = SubResource("CapsuleShape2D_dxc4h")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(1.5, -0.5)
+scale = Vector2(0.96875, 0.90625)
+sprite_frames = SubResource("SpriteFrames_gw5b2")
+animation = &"Move"

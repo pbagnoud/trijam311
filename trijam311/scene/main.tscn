@@ -1,12 +1,14 @@
-[gd_scene load_steps=5 format=4 uid="uid://nu8l30genray"]
+[gd_scene load_steps=6 format=4 uid="uid://nu8l30genray"]
 
 [ext_resource type="Script" path="res://script/main.gd" id="1_seciw"]
 [ext_resource type="Texture2D" uid="uid://bv8so10pn41s2" path="res://asset/floor_placeholder.png" id="2_lefjs"]
+[ext_resource type="PackedScene" uid="uid://f4pi2uknlxro" path="res://scene/Character.tscn" id="3_qysgs"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_f0eti"]
 texture = ExtResource("2_lefjs")
 0:0/size_in_atlas = Vector2i(4, 4)
 0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-34, -31, -29, 31, 35, 32, 32, -31, -33, -32)
 
 [sub_resource type="TileSet" id="TileSet_yb823"]
 physics_layer_0/collision_layer = 1
@@ -18,3 +20,6 @@ script = ExtResource("1_seciw")
 [node name="Environnement" type="TileMapLayer" parent="."]
 tile_map_data = PackedByteArray("AAABAB0AAQAAAAAAAAAFAB0AAQAAAAAAAAAJAB0AAQAAAAAAAAANAB0AAQAAAAAAAAARAB0AAQAAAAAAAAAVAB0AAQAAAAAAAAAZAB0AAQAAAAAAAAAaAB0AAQAAAAAAAAAeAB0AAQAAAAAAAAAiAB0AAQAAAAAAAAAmAB0AAQAAAAAAAAAqAB0AAQAAAAAAAAAuAB0AAQAAAAAAAAAyAB0AAQAAAAAAAAA2AB0AAQAAAAAAAAA6AB0AAQAAAAAAAAA+AB0AAQAAAAAAAABCAB0AAQAAAAAAAABGAB0AAQAAAAAAAAA=")
 tile_set = SubResource("TileSet_yb823")
+
+[node name="Character" parent="." instance=ExtResource("3_qysgs")]
+position = Vector2(210, 423)
