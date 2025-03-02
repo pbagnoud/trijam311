@@ -5,6 +5,7 @@ const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 
+signal hit_dragon
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -33,7 +34,11 @@ func _physics_process(delta: float) -> void:
 		sprite.flip_h = false
 	
 		
-
-
-
 	move_and_slide()
+	for i in get_slide_collision_count():
+		var collision = get_slide_collision(i)
+		if collision.get_collider().name == "Node2D":
+			hit_dragon.emit()
+			velocity.x = 1 * SPEED *10
+			velocity.y = JUMP_VELOCITY
+	
