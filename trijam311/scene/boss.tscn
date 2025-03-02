@@ -1,6 +1,10 @@
 [gd_scene load_steps=5 format=3 uid="uid://c74xxvv5fksis"]
 
+<<<<<<< Updated upstream
 [ext_resource type="Script" path="res://script/boss.gd" id="1_7pik1"]
+=======
+[ext_resource type="Script" path="res://script/boss.gd" id="1_vfun5"]
+>>>>>>> Stashed changes
 [ext_resource type="Texture2D" uid="uid://de56p12tpxw02" path="res://asset/boss carapace.png" id="2_bdm18"]
 [ext_resource type="Texture2D" uid="uid://wpi4k0ygqccu" path="res://asset/boss dragon.png" id="3_rl7md"]
 
@@ -23,8 +27,9 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Node2D" type="Node2D"]
-script = ExtResource("1_7pik1")
+[node name="Node2D" type="Node2D" node_paths=PackedStringArray("Animated_boss")]
+script = ExtResource("1_vfun5")
+Animated_boss = NodePath("AnimatedSprite2D")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_41618")
