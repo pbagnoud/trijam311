@@ -15,8 +15,13 @@ show_percentage = false
 script = ExtResource("1_2v8ih")
 
 [node name="Boss_Health_Label" type="RichTextLabel" parent="."]
-layout_mode = 0
-offset_left = 524.0
-offset_top = 20.0
-offset_right = 632.0
-offset_bottom = 60.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.002
+anchor_top = 0.026
+anchor_right = 0.002
+anchor_bottom = 0.026
+offset_left = 459.696
+offset_top = 6.972
+offset_right = 567.696
+offset_bottom = 60.972
