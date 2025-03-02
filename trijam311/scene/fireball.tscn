@@ -1,10 +1,19 @@
-[gd_scene load_steps=4 format=3 uid="uid://l0ckss6wxr26"]
+[gd_scene load_steps=6 format=3 uid="uid://l0ckss6wxr26"]
 
 [ext_resource type="Script" path="res://fireball.gd" id="1_cnq4g"]
 [ext_resource type="Texture2D" uid="uid://dtp8d4g4o0ps5" path="res://asset/fireball.png" id="2_tp6ie"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_oy7tb"]
 radius = 80.0
+
+[sub_resource type="Curve" id="Curve_1haf3"]
+_data = [Vector2(0, 0.524041), 0.0, 0.0, 0, 0, Vector2(0.496104, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Gradient" id="Gradient_b30hq"]
+offsets = PackedFloat32Array(0, 0.2, 0.4, 0.5, 0.8, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.66, 0.00659999, 0.00659999, 1, 1, 0.175, 0.00999999, 1, 1, 0.2575, 0.00999999, 1, 1, 0.7525, 0.00999999, 1, 1, 1, 1, 1)
+metadata/_snap_enabled = true
 
 [node name="Fireball" type="Node2D"]
 script = ExtResource("1_cnq4g")
@@ -28,6 +37,24 @@ polygon = PackedVector2Array(-5, 16, -14, 12, -16, 10, -16, -5, -14, -12, -10, -
 
 [node name="ExplosionCircle" type="CollisionShape2D" parent="FireballExplosionArea"]
 shape = SubResource("CircleShape2D_oy7tb")
+
+[node name="ExplosionParticles" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 300
+lifetime = 0.5
+one_shot = true
+speed_scale = 0.8
+explosiveness = 0.87
+particle_flag_align_y = true
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 80.57
+initial_velocity_max = 189.57
+scale_amount_min = 2.0
+scale_amount_max = 5.0
+scale_amount_curve = SubResource("Curve_1haf3")
+color_ramp = SubResource("Gradient_b30hq")
+hue_variation_max = 1.0
 
 [connection signal="timeout" from="FlipTimer" to="." method="flip"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="exits_screen"]
